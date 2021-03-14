@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <title>NOTAS</title>
+</head>
+
+<body class="text-white" style="background-image:url(./fondo.jpg"));">
+  <div class="m-3">
+    <input type="text" class="w-50" id="buscarnota" placeholder="Buscar Nota!">
+  </div>
+  <!-- Tabla de notas -->
+  <div class="d-flex justify-content-between">
+    <h1 class="mt-4 ms-3">Mis notas</h1>
+    <button type="button" id="nuevanota" class="btn btn-success me-3 mt-4" data-bs-toggle="modal"
+      data-bs-target="#exampleModal" style = "width:150px; height: 50px;">Crear
+      notas</button>
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" style="cursor:pointer;">
+        <div class="modal-content" style="background-color: black;">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nueva Nota</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="formularioNotaInput">
+              <div class="mb-2">
+                <label for="recipient-name" class="col-form-label" >Titulo</label>
+                <input type="text" class="form-control" id="tituloInput" maxlength="60" required>
+              </div>
+              <div class="mb-2">
+                <label for="message-text" class="col-form-label">Nota</label>
+                <textarea class="form-control" id="notaInput" rows="6" maxlength="500" required></textarea>
+              </div>
+              <div>
+                <label for="tNotaInput">Categoria</label>
+                <select id="tNotaInput" class="mb-3">
+                  <option>Trabajo</option>
+                  <option>Facultad</option>
+                  <option>importante</option>
+                </select>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-primary">Guardar Nota</button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="mb-0 ms-3">
+  <div>
+    <table class="table text-white ms-3">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Nota</th>
+          <th scope="col">Categoria</th>
+        </tr>
+      </thead>
+      <tbody id="tabla">
+    
+        
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+  <script src="./practicaindividual.js"></script>
+</body>
+
+</html>
