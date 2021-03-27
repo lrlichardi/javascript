@@ -11,20 +11,41 @@
   <title>NOTAS</title>
 </head>
 
-<body class="text-white" style="background-image:url(./fondo.jpg"));">
+<body class="text-white" style="background-image:url(./fondo.jpg);">
   <div class="m-3">
-    <input type="text" class="w-50" id="buscarnota" placeholder="Buscar Nota!">
+    <form action="" id="formBuscar">
+      <input type="text" class="w-50" id="buscarNota" placeholder="Buscar Nota!">
+      <button type="submit">Buscar</button>
+    </form>
+  </div>
+  <!--modal detalle -->
+  <div class="modal fade modalDetalle" id=" staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="color: black;">
+        <div class="modal-header modal-title" id="detalleNota2">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="detalleNota">
+          <!-- <h1>Titulo:${mostrarNota.titulo}</h1>
+        <p>Nota: ${mostrarNota.nota}</p>
+        <p>Categoria: ${mostrar.tnota}</p> -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
   </div>
   <!-- Tabla de notas -->
   <div class="d-flex justify-content-between">
     <h1 class="mt-4 ms-3">Mis notas</h1>
     <button type="button" id="nuevanota" class="btn btn-success me-3 mt-4" data-bs-toggle="modal"
-      data-bs-target="#exampleModal" style = "width:150px; height: 50px;">Crear
+      data-bs-target="#exampleModal" style="width:150px; height: 50px;">Crear
       notas</button>
-    
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" style="cursor:pointer;">
-        <div class="modal-content" style="background-color: black;">
+        <div class="modal-content" style="background-color:black;">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Nueva Nota</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -32,7 +53,7 @@
           <div class="modal-body">
             <form id="formularioNotaInput">
               <div class="mb-2">
-                <label for="recipient-name" class="col-form-label" >Titulo</label>
+                <label for="recipient-name" class="col-form-label">Titulo</label>
                 <input type="text" class="form-control" id="tituloInput" maxlength="60" required>
               </div>
               <div class="mb-2">
@@ -44,13 +65,12 @@
                 <select id="tNotaInput" class="mb-3">
                   <option>Trabajo</option>
                   <option>Facultad</option>
-                  <option>importante</option>
+                  <option>Importante</option>
                 </select>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                   <button type="submit" class="btn btn-primary">Guardar Nota</button>
                 </div>
-
               </div>
             </form>
           </div>
@@ -58,22 +78,65 @@
       </div>
     </div>
   </div>
+  <!-- editar modal  -->
+  <!-- Modal Editar Usuario -->
+  <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="color: black;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar usuario</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="formularioEditar">
+          <div class="modal-body">
+            <label for="editarTitulo">Titulo</label>
+            <input type="text" id="editarTitulo" required>
+            <br>
+            <div style="display:flex;">
+              <label for="message-text" class="col-form-label me-2">Nota:</label>
+              <textarea class="form-control mt-2 mb-2" id="editarNota" rows="6" maxlength="500" required></textarea>
+            </div>
+            <br>
+            <label for="editarNota">Ingresar Categoria</label>
+            <select id="editarCategoria" required>
+              <option>Trabajo</option>
+              <option>Facultad</option>
+              <option>Importante</option>
+
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" type="submit">Enviar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- tabla  -->
   <hr class="mb-0 ms-3">
   <div>
     <table class="table text-white ms-3">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Titulo</th>
-          <th scope="col">Nota</th>
-          <th scope="col">Categoria</th>
-        </tr>
-      </thead>
-      <tbody id="tabla">
+
+  <thead>
+    <tr>
+      <th scope="col">Titulo</th>
+      <th scope="col">Nota</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Hora de creacion</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody id="tabla">
     
-        
-      </tbody>
-    </table>
+    
+    <div id="alertaBusqueda" class="alert alert-info d-none">No hay resultados para la búsqueda</div>
+  </div>
+
+
+
+  </tbody>
+  </table>
   </div>
 
 
